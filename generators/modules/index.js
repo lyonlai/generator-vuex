@@ -16,15 +16,6 @@ module.exports = Generator.extend({
       name: 'storeDirectory',
       message: 'Tell me which directory you store your vuex store configuration',
       default: 'src/store',
-      validate: function (input) {
-        var notEmpty = input && input.length > 0;
-
-        if (!notEmpty) {
-          return 'store directory is required';
-        }
-
-        return true;
-      },
       when: function () {
         var storeDirectory = this.config.get('storeDirectory');
 
@@ -35,9 +26,6 @@ module.exports = Generator.extend({
       name: 'modulesDirectory',
       message: 'Tell me which directory you want to store your vuex modules',
       default: 'modules',
-      filter: function (input) {
-        return input || '';
-      },
       when: function () {
         var modulesDirectory = this.config.get('modulesDirectory');
         return modulesDirectory === null || modulesDirectory === undefined;
@@ -70,8 +58,6 @@ module.exports = Generator.extend({
     return this.prompt(prompts).then(function (props) {
       // To access props later use this.props.someAnswer;
       this.props = props;
-
-      console.log('props', props);
     }.bind(this));
   },
 

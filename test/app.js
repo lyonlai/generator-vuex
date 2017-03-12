@@ -1,18 +1,17 @@
 'use strict';
-var path = require('path');
-var assert = require('yeoman-assert');
-var helpers = require('yeoman-test');
+import test from 'ava';
+import path from 'path';
+import assert from 'yeoman-assert';
+import helpers from 'yeoman-test';
 
-describe('generator-vuex:app', function () {
-  before(function () {
-    return helpers.run(path.join(__dirname, '../generators/app'))
-      .withPrompts({someAnswer: true})
-      .toPromise();
-  });
+test.before(() => {
+  return helpers.run(path.join(__dirname, '../generators/app'))
+    .withPrompts({someAnswer: true})
+    .toPromise();
+});
 
-  it('creates files', function () {
-    assert.file([
-      'dummyfile.txt'
-    ]);
-  });
+test('application should create file', () => {
+  assert.file([
+    'dummyfile.txt'
+  ]);
 });
