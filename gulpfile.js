@@ -30,9 +30,8 @@ gulp.task('test', ['pre-test'], function (cb) {
 
   gulp.src('test/**/*.js')
     .pipe(ava({
-      verbose: true,
-      nyc: true,
-      tap: true
+      verbose: false,
+      nyc: true
     }))
     .pipe(plumber())
     .on('end', function () {

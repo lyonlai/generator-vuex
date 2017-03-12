@@ -1,10 +1,5 @@
 export default [
-  'updateDialogOpen',
-  'resetState',
-  'updatePriceDate',
-  'updateRetailerId',
-  'updateDownloading',
-  'updateDownloaded'
+  'resetState'
 ].reduce((acc, value) => {
   acc[value] = value
   return acc

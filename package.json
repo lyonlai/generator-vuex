@@ -66,8 +66,5 @@
       "lcov",
       "text-summary"
     ]
-  },
-  "ava": {
-    "tap": true
   }
 }

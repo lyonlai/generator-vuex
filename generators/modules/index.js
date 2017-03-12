@@ -3,6 +3,7 @@ var Generator = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var path = require('path');
+var validator = require('./validator');
 
 module.exports = Generator.extend({
   prompting: function () {
@@ -38,21 +39,7 @@ module.exports = Generator.extend({
         ' will create the module for you in ' +
         chalk.green('modules/tabs/store/product'),
       default: '',
-      validate: function (input) {
-        var notEmpty = input && input.length > 0;
-
-        if (!notEmpty) {
-          return 'module name is required';
-        }
-
-        var containsSeparator = input.indexOf(path.sep) >= 0;
-
-        if (containsSeparator) {
-          return 'module name contains path separator: ' + path.sep;
-        }
-
-        return true;
-      }
+      validate: validator.validateModuleName
     }];
 
     return this.prompt(prompts).then(function (props) {
