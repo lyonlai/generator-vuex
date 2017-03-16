@@ -3,7 +3,6 @@ var Generator = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var path = require('path');
-var validator = require('./validator');
 var storePrompt = require('../../shared/store-directory').storePrompt;
 var modulesPrompt = require('../../shared/modules-directory').modulesDirectoryPrompt;
 var saveStorePromptConfiguration = require('../../shared/store-directory').saveStorePromptConfiguration;
@@ -14,7 +13,7 @@ module.exports = Generator.extend({
   prompting: function () {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Time to create a new module, shall we?'
+      'Welcome to the pioneering ' + chalk.red('generator-vuex') + ' generator!'
     ));
 
     var sharedPrompts = [
@@ -23,16 +22,7 @@ module.exports = Generator.extend({
 
     bindPrompts(sharedPrompts, this);
 
-    var prompts = sharedPrompts.concat([{
-      type: 'input',
-      name: 'moduleName',
-      message: 'Please specify your module name, e.g. ' +
-        chalk.green('tabs.store.product') +
-        ' will create the module for you in ' +
-        chalk.green('modules/tabs/store/product'),
-      default: '',
-      validate: validator.validateModuleName
-    }]);
+    var prompts = sharedPrompts.concat([]);
 
     return this.prompt(prompts).then(function (props) {
       // To access props later use this.props.someAnswer;
@@ -42,16 +32,13 @@ module.exports = Generator.extend({
 
   configuring: function () {
     saveStorePromptConfiguration(this.props.storeDirectory, this.config);
-
     saveModulesPromptConfiguration(this.props.modulesDirectory, this.config);
   },
 
   writing: function () {
-    const modulePaths = this.props.moduleName.split('.');
     const storeDirectory = this.config.get('storeDirectory');
     const modulesDirectory = this.config.get('modulesDirectory');
-    const directories = [storeDirectory, modulesDirectory].concat(modulePaths);
-
+    console.log('directories: ', storeDirectory, modulesDirectory);
     [
       'index.js',
       'actions.js',
@@ -62,8 +49,17 @@ module.exports = Generator.extend({
     ].forEach(function (file) {
       this.fs.copy(
         this.templatePath(file),
-        this.destinationPath(path.join.apply(path, directories.concat(file)))
+        this.destinationPath(path.join.apply(path, [storeDirectory].concat(file)))
       );
     }.bind(this));
+    var emptyFile = '.gitkeep';
+    this.fs.copy(
+      this.templatePath(emptyFile),
+      this.destinationPath(path.join(storeDirectory, modulesDirectory, emptyFile))
+    );
+  },
+
+  install: function () {
+    this.yarnInstall(['vuex', 'vuex-module-configuration-composer']);
   }
 });

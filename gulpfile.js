@@ -9,7 +9,10 @@ var coveralls = require('gulp-coveralls');
 var ava = require('gulp-ava');
 
 gulp.task('static', function () {
-  return gulp.src('**/*.js')
+  return gulp.src([
+    '**/*.js',
+    '!**/templates/*.js'
+  ])
     .pipe(excludeGitignore())
     .pipe(eslint())
     .pipe(eslint.format())

@@ -2,7 +2,7 @@ import test from 'ava';
 import assert from 'yeoman-assert';
 import {runModulesWithPrompts} from './_utils';
 
-test('modules should create modules within specified directory', () => {
+test('Generator: Modules - modules should create modules within specified directory', () => {
   return runModulesWithPrompts({
     storeDirectory: 'client/store',
     modulesDirectory: 'my-modules',
