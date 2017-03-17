@@ -39,6 +39,19 @@ yo vuex:modules
 
 By Giving your the name of the namespaced module you intended to create, you will have your module automatically created and loaded within your store. Say good bye to the need of importing modules and putting them in your store configuration. Just generate it then use it in your component straight away.
 
+For example. When you specified your module name as tabs/store/product, you will have the following set files in your {storeDirectory}/{moduleDirectory}/tabs/store/product
+
+```
+  index.js // module index combining state, getters, actions, mutations into default pojo
+  actions.js // actions
+  getters.js // getters
+  mutations.js // mutations
+  mutation-types.js // mutation-types, think of that as constants
+  state.js // initial state
+```
+
+Each module comes with a default resetState action, which might come in handy when you are doing test or even application code when you need it.
+
 ## License
 
 MIT © [Yun Lai](https://github.com/lyonlai)
