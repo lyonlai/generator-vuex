@@ -1,5 +1,5 @@
 # generator-vuex [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> Generator to easily generate the vuex states/getters/mutations/actions and/or modules
+> Generator to easily generate the vuex states/getters/mutations/actions and/or modules for complex vuex project.
 
 ## Installation
 
@@ -10,18 +10,21 @@ npm install -g yo
 npm install -g generator-vuex
 ```
 
-Then generate your new project:
+Then generate your vuex store:
 
 ```bash
 yo vuex
 ```
 
-## Getting To Know Yeoman
+After your Vuex store has been setup. One more thing to do at the moment is to import the generated store and put it in your Vue component.
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+Once that's finished, you can generate Vuex module easily.
+
+```bash
+yo vuex:modules
+```
+
+Give your the name of the namespaced module you intended to create, then you will have your module automatically loaded within your store. Say good bye to the complex module hook up. Just generate it then use it in your component straight away.
 
 ## License
 

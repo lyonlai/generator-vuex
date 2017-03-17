@@ -20,7 +20,6 @@
     "actions",
     "modules",
     "generation",
-    "scaffolding",
     "yeoman-generator"
   ],
   "dependencies": {
