@@ -18,13 +18,26 @@ yo vuex
 
 After your Vuex store has been setup. One more thing to do at the moment is to import the generated store and put it in your Vue component.
 
+```javascript
+import Vue from 'vue'
+import App from './App.vue'
+import store from './store/index'
+
+new Vue({
+  el: '#app',
+  store,
+  template: '<App/>',
+  components: { App },
+});
+```
+
 Once that's finished, you can generate Vuex module easily.
 
 ```bash
 yo vuex:modules
 ```
 
-Give your the name of the namespaced module you intended to create, then you will have your module automatically loaded within your store. Say good bye to the complex module hook up. Just generate it then use it in your component straight away.
+By Giving your the name of the namespaced module you intended to create, you will have your module automatically created and loaded within your store. Say good bye to the need of importing modules and putting them in your store configuration. Just generate it then use it in your component straight away.
 
 ## License
 

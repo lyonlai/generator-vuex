@@ -1,7 +1,7 @@
 {
   "name": "generator-vuex",
-  "version": "0.0.0",
-  "description": "Generator to easily generate the vuex states/getters/mutations/actions and/or modules",
+  "version": "1.0.0",
+  "description": "Generator to easily generate the Vuex states/getters/mutations/actions and/or modules",
   "homepage": "",
   "author": {
     "name": "Yun Lai",
@@ -28,6 +28,7 @@
     "yosay": "^1.2.1"
   },
   "devDependencies": {
+    "coveralls": "^2.12.0",
     "eslint": "^3.1.1",
     "eslint-config-xo-space": "^0.15.0",
     "eslint-plugin-ava": "^4.2.0",
@@ -58,7 +59,10 @@
   },
   "license": "MIT",
   "nyc": {
-    "check-coverage": false,
+    "lines": 99,
+    "statements": 99,
+    "functions": 99,
+    "branches": 80,
     "report-dir": "./coverage",
     "reporter": [
       "html",
