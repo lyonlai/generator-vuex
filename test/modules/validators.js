@@ -11,12 +11,10 @@ test('validateModuleName should return error message on empty message', t => {
   ].forEach(input => t.is(validateModuleName(input), 'module name is required'));
 });
 
-test('validateModuleName should fail for string contains path separator', t => {
+test('validateModuleName should passeven string contains path separator', t => {
   const pathWithSeparator = ['a', 'b', 'c'].join(path.sep);
 
-  const validateResult = validateModuleName(pathWithSeparator);
-  t.is(typeof validateResult, 'string');
-  t.is(validateResult.indexOf('module name contains path separator'), 0);
+  t.true(validateModuleName(pathWithSeparator));
 });
 
 test('a valid path separated with dot will pass the test', t => {

@@ -6,7 +6,7 @@ test('Generator: Modules - modules should create modules within specified direct
   return runModulesWithPrompts({
     storeDirectory: 'client/store',
     modulesDirectory: 'my-modules',
-    moduleName: 'tabs.store.product'
+    moduleName: 'tabs/store/product'
   }).then(() => {
     assert.file([
       'index.js',

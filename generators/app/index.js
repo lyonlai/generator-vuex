@@ -13,7 +13,7 @@ module.exports = Generator.extend({
   prompting: function () {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the pioneering ' + chalk.red('generator-vuex') + ' generator!'
+      'Welcome to the pioneering ' + chalk.red('vuex') + ' generator!'
     ));
 
     var sharedPrompts = [

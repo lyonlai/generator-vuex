@@ -26,8 +26,8 @@ module.exports = Generator.extend({
     var prompts = sharedPrompts.concat([{
       type: 'input',
       name: 'moduleName',
-      message: 'Please specify your module name, e.g. ' +
-        chalk.green('tabs.store.product') +
+      message: 'Please specify your module name as you will do in mapGetters, e.g. ' +
+        chalk.green('tabs/store/product') +
         ' will create the module for you in ' +
         chalk.green('modules/tabs/store/product'),
       default: '',
@@ -47,7 +47,7 @@ module.exports = Generator.extend({
   },
 
   writing: function () {
-    const modulePaths = this.props.moduleName.split('.');
+    const modulePaths = this.props.moduleName.split('/');
     const storeDirectory = this.config.get('storeDirectory');
     const modulesDirectory = this.config.get('modulesDirectory');
     const directories = [storeDirectory, modulesDirectory].concat(modulePaths);
