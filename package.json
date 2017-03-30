@@ -1,6 +1,6 @@
 {
   "name": "generator-vuex",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generator to easily generate the Vuex states/getters/mutations/actions and/or modules",
   "homepage": "",
   "author": {
@@ -9,7 +9,8 @@
     "url": "https://github.com/lyonlai"
   },
   "files": [
-    "generators"
+    "generators",
+    "shared"
   ],
   "main": "generators/index.js",
   "keywords": [
